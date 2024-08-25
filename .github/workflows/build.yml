@@ -50,13 +50,19 @@ jobs:
       shell: bash
       run: |
         cd ./generator
-        bash ./generator.sh -t win32 d3d9
+        bash ./generator.sh -t internal win32 dx9
 
-    - name: CMake
+    - name: CMake Debug
       run: |
         mkdir cmake-build
         cd cmake-build
-        cmake -DCIMGUI_TEST=1 ..
+        cmake -DCIMGUI_TEST=1 -DIMGUI_STATIC ..
+
+    - name: CMake Rel
+      run: |
+        mkdir cmake-build
+        cd cmake-build
+        cmake -DCIMGUI_TEST=1 -DIMGUI_STATIC .. --config Release
 
     - name: Build
       working-directory: cmake-build
@@ -66,7 +72,7 @@ jobs:
     - uses: actions/upload-artifact@v4.3.6
       with: 
         name: my-artifact
-        path: ./*
+        path: ./cmake-build/*
 
     - name: Test
       shell: bash
