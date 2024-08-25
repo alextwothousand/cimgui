@@ -67,7 +67,11 @@ jobs:
     - uses: actions/upload-artifact@v4.3.6
       with: 
         name: cimgui
-        path: ./cmake-build/*
+        path: |
+          ./cmake-build/Debug/*
+          ./cmake-build/Release/*
+          ./cimgui.cpp
+          ./cimgui.h
 
     - name: Test
       shell: bash
