@@ -52,22 +52,17 @@ jobs:
         cd ./generator
         bash ./generator.sh internal
 
-    - name: CMake Debug
+    - name: CMake
       run: |
         mkdir cmake-build
         cd cmake-build
         cmake -DCIMGUI_TEST=1 -DIMGUI_STATIC=yes ..
 
-    - name: CMake Rel
-      run: |
-        mkdir cmake-build-rel
-        cd cmake-build-rel
-        cmake -DCIMGUI_TEST=1 -DIMGUI_STATIC=yes .. --config Release
-
     - name: Build
       working-directory: cmake-build
       run: |
         cmake --build .
+        cmake --build --config Release .
 
     - uses: actions/upload-artifact@v4.3.6
       with: 
