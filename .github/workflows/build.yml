@@ -56,7 +56,7 @@ jobs:
       run: |
         mkdir cmake-build
         cd cmake-build
-        cmake -DCIMGUI_TEST=1 -DIMGUI_STATIC=yes ..
+        cmake -DIMGUI_STATIC=yes ..
 
     - name: Build
       working-directory: cmake-build
