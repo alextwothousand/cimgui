@@ -50,7 +50,7 @@ jobs:
       shell: bash
       run: |
         cd ./generator
-        bash ./generator.sh internal
+        bash ./generator.sh
 
     - name: CMake
       run: |
