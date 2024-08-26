@@ -22,8 +22,8 @@
 # ref: https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
 POSITIONAL_ARGS=()
 
-TARGETS="internal noimstrv win32 dx9"
-CFLAGS="d3d9"
+TARGETS="internal noimstrv"
+CFLAGS="win32 dx9 -DCIMGUI_USE_DX9 -DCIMGUI_USE_WIN32"
 
 help() {
         cat <<EOF
