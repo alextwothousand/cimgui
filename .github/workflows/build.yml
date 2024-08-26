@@ -74,6 +74,12 @@ jobs:
           ./cimgui.cpp
           ./cimgui.h
 
+    - uses: actions/upload-artifact@v4.3.6
+      with: 
+        name: dev
+        path: |
+          ./*
+
     - name: Test
       shell: bash
       env:
